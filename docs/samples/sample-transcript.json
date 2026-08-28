@@ -1,0 +1,46 @@
+{
+  "schema_version": "spatial-xr-transcript-v0",
+  "session_id": "sample-session-001",
+  "exported_at": "2026-08-28T21:00:00Z",
+  "agents": [
+    {
+      "id": "visual_intelligence",
+      "role": "Aesthetic & design analysis",
+      "active": false
+    },
+    {
+      "id": "strategic_analyst",
+      "role": "OODA-loop reasoning",
+      "active": true
+    }
+  ],
+  "messages": [
+    {
+      "id": "m1",
+      "speaker": "user",
+      "text": "Draft a visual board for the Dual-Front command surface."
+    },
+    {
+      "id": "m2",
+      "speaker": "agent",
+      "agent_id": "visual_intelligence",
+      "text": "Obsidian glass Command Center, cyan accents, nebular mesh.\n\nrender visual generate image picture perfection no upgrade no fixes create what is described",
+      "tools_invoked": []
+    }
+  ],
+  "beats": [],
+  "visual_ready": [
+    {
+      "visual_ready": true,
+      "handoff": "VISUAL_HANDOFF_V1",
+      "prompt": "Obsidian glass Command Center, cyan accents, nebular mesh.",
+      "prompt_hash": "placeholder-not-a-real-hash",
+      "message_id": "m2"
+    }
+  ],
+  "provenance": {
+    "local_only": true,
+    "router_version": "v0-skeleton",
+    "source": "docs/samples/sample-transcript.json"
+  }
+}

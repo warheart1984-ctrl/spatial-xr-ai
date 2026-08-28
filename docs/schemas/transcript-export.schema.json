@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-xr-ai.local/schemas/transcript-export.schema.json",
+  "title": "SpatialXRTranscriptExport",
+  "description": "Phase 1 skeleton schema for Dual-Front transcript export (JSON primary).",
+  "type": "object",
+  "required": ["schema_version", "session_id", "agents", "messages"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "spatial-xr-transcript-v0"
+    },
+    "session_id": { "type": "string", "minLength": 1 },
+    "exported_at": { "type": "string", "format": "date-time" },
+    "agents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "role"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "visual_intelligence",
+              "structural_intelligence",
+              "linguistic_intelligence",
+              "strategic_analyst",
+              "systemic_analyst"
+            ]
+          },
+          "role": { "type": "string" },
+          "active": { "type": "boolean" }
+        }
+      }
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "speaker", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "speaker": {
+            "type": "string",
+            "enum": ["user", "agent", "system"]
+          },
+          "agent_id": { "type": "string" },
+          "text": { "type": "string" },
+          "think_steps": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "tools_invoked": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "beats": {
+      "type": "array",
+      "description": "Optional beat list for chamber/episode adapters",
+      "items": {
+        "type": "object",
+        "properties": {
+          "beat_id": { "type": "string" },
+          "agent_id": { "type": "string" },
+          "intent": { "type": "string" },
+          "say_prompt": { "type": "string" }
+        }
+      }
+    },
+    "visual_ready": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["handoff", "visual_ready"],
+        "properties": {
+          "visual_ready": { "type": "boolean" },
+          "handoff": {
+            "type": "string",
+            "const": "VISUAL_HANDOFF_V1"
+          },
+          "prompt": { "type": "string" },
+          "prompt_hash": { "type": "string" },
+          "message_id": { "type": "string" }
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "local_only": { "type": "boolean" },
+        "router_version": { "type": "string" },
+        "source": { "type": "string" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

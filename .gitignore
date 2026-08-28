@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build
+dist/
+build/
+.vite/
+*.local
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs / coverage
+logs/
+*.log
+coverage/
+.nyc_output/
+
+# Runtime junk (never commit)
+runtime/
+.runtime/
+vendor/
+*.bin
+*.mp4
+*.webm
+*.glb
+*.png
+*.jpg
+*.jpeg
+*.webp
+!docs/**/*.png
+
+# Python
+__pycache__/
+.venv/
+*.pyc
