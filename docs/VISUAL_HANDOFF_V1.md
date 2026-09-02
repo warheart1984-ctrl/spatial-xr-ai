@@ -1,8 +1,9 @@
 # VISUAL_HANDOFF_V1
 
-**Status:** `skeleton` (contract declared; router not enforced)  
-**Owner:** Visual Intelligence agent  
-**Stability:** The completion phrase must remain **byte-stable**. Do not paraphrase in prompts or UI copy that the router matches.
+**Status:** `enforced` as a router side-channel; render lane itself remains `skeleton`  
+**Stability:** The completion phrase must remain **byte-stable**. Do not paraphrase.
+
+Router v0 does **not** treat this as a third Dual-Front. When the phrase is present it is recorded on `router_trace.visual_handoff` while Equalizer vs Analyst routing still follows [ROUTER_V0.md](./ROUTER_V0.md).
 
 ## Completion phrase
 
@@ -35,11 +36,12 @@ Transcript export should include these fields under `visual_ready[]` (see schema
 ## Router rule (v0)
 
 ```
-IF response contains VISUAL_HANDOFF_V1 phrase
-AND turn intent == visual_creation
-THEN select agent = Visual Intelligence
-AND enqueue render job with prompt = last visual brief
+IF utterance contains the VISUAL_HANDOFF_V1 phrase
+THEN router_trace.visual_handoff = VISUAL_HANDOFF_V1
+AND Dual-Front target_front is still Equalizer or Analyst per keyword/token rules
 ```
+
+Render enqueue remains a downstream adapter (`skeleton`). Do not invent a third front.
 
 ## Anti-patterns
 

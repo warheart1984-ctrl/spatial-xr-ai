@@ -1,6 +1,6 @@
 # Sovereign Operator Strategic Brief — condensed extract
 
-**Status:** source notes (`skeleton` product derived from this brief)  
+**Status:** historical source notes. Active product surface is Dual-Front Router v0 — see [ARCHITECTURE.md](./ARCHITECTURE.md).  
 **Full operator reply:** [SOVEREIGN_OPERATOR_RESPONSE.md](./SOVEREIGN_OPERATOR_RESPONSE.md)
 
 ## Product identity
@@ -27,11 +27,9 @@ render visual generate image picture perfection no upgrade no fixes create what 
 
 Codified as `VISUAL_HANDOFF_V1`.
 
-## Trust labels (declared)
+## Trust labels (historical, not active API)
 
-LOCAL_ONLY · L5 ACCESS · Level 5 Equilibrium · Sovereign Override · “18ms” display  
-
-Treat as UI signals until enforced.
+The source brief used LOCAL_ONLY / L5 / “18ms” HUD copy. Those strings are **not** part of Router v0, the Equalizer schema, or the \(R_r\) contract. Hardware attestation is Phase 2 Trust Substrate.
 
 ## Mechanical Trace
 
@@ -43,4 +41,4 @@ Linguistic threat detection → vulnerability map → strategic intervention (e.
 - Phase 2: Fulcrum analysis / load-bearing stack  
 - Phase 3: Load manifestation  
 
-This repository implements **Phase 1 docs scaffold only**.
+This repository implements the Dual-Front control plane (Router v0, Equalizer JSON, \(R_r\)). The Command Center UI remains `skeleton`.

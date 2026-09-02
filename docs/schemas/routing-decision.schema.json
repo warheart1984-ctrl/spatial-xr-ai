@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-xr-ai.local/schemas/routing-decision.schema.json",
+  "title": "RoutingDecision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["routing_decision"],
+  "properties": {
+    "routing_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_front",
+        "handoff_token",
+        "trigger_reason",
+        "injected_tone_law"
+      ],
+      "properties": {
+        "target_front": {
+          "type": "string",
+          "enum": ["LINGUISTIC_EQUALIZER", "SYSTEMIC_ANALYST"]
+        },
+        "handoff_token": {
+          "type": "string",
+          "enum": ["EQUALIZER_TACTICAL_V1", "ANALYST_SYSTEMIC_V1"]
+        },
+        "trigger_reason": { "type": "string", "minLength": 1 },
+        "injected_tone_law": {
+          "type": "string",
+          "const": "EMPOWERMENT_FIRST_CHECKLIST"
+        }
+      }
+    }
+  }
+}

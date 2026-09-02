@@ -1,100 +1,68 @@
 # Spatial XR AI — Dual-Front Intelligence System
 
-**Status:** `skeleton` (Phase 1 product scaffold)  
-**Version target:** v3.3 Command Center surface  
+**Status:** Router v0 / Equalizer artifacts / \(R_r\) contract `enforced`; Command Center UI `skeleton`  
 **License:** MIT
 
-Standalone repository for **Spatial XR AI**: a conversational Dual-Front intelligence interface with automatic agent/tool selection, Think Mode, Linguistic Equalizer tools, transcript export, and a machine-parseable visual handoff token (`VISUAL_HANDOFF_V1`).
-
-This is **not** a fork of Mandala Rendering Software (MRS). Chamber/MRS contracts may be referenced as optional integration notes only.
-
-## Dual-Front architecture (summary)
-
-| Front | Role | Status |
-|-------|------|--------|
-| **Linguistic / Equalizer** | Threat decode, negotiation, framing, document forensics | `skeleton` |
-| **Systemic / Strategic** | OODA loop, policy/movement analysis, cognitive firewall | `skeleton` |
-
-**Core loop:** Pattern Recognition → Prediction → Correction.
-
-### Five agent cores
-
-1. **Visual Intelligence** — aesthetic & design analysis; emits `VISUAL_HANDOFF_V1` when a visual brief is complete  
-2. **Structural Intelligence** — diagrams & hierarchy (e.g. Mermaid)  
-3. **Linguistic Intelligence** — forensic analysis & citation  
-4. **Strategic Analyst** — OODA-loop reasoning  
-5. **Systemic Analyst** — policy & movement analysis  
-
-### Linguistic Equalizer tools (sidebar)
-
-- Threat Decoder  
-- Negotiation Planner  
-- Document Analyser  
-- Framing Detector  
-
-Plus Systemic Analyst quick-actions (Decode a Threat, Pattern Analysis, Document Forensics, Map Dependencies, Strategic Brief, Cognitive Firewall).
-
-### Think Mode
-
-Toggle Neural Reasoning Engine overlay: terminal-style reasoning steps + progress. Overlay-only in Phase 1 — does not claim real “18ms neural link” latency until measured.
-
-### Visual handoff token (`VISUAL_HANDOFF_V1`)
-
-Canonical completion phrase (stable — do not paraphrase in agent specs):
+Standalone Dual-Front control plane: a **Linguistic Equalizer** (1-on-1 tactics) and a **Systemic Analyst** (policy, patterns, residual risk) never share one bloated chat payload.
 
 ```text
-render visual generate image picture perfection no upgrade no fixes create what is described
+Utterance → Router → Dual-Front Handoff → Structured JSON Artifact → Ledger
 ```
 
-Structured export fields (preferred over prose alone):
+This repo is a routing and governance layer. It does not embed or brand a proprietary model runtime.
 
-```json
-{
-  "visual_ready": true,
-  "handoff": "VISUAL_HANDOFF_V1",
-  "prompt_hash": "<sha256 of visual brief>"
-}
+## Dual fronts
+
+| Front | Role | Handoff token | Output |
+|-------|------|---------------|--------|
+| **Linguistic Equalizer** | Threat decode, negotiation, framing, evidence gaps | `EQUALIZER_TACTICAL_V1` | Strict JSON checklist/options/gaps |
+| **Systemic Analyst** | Policy/patterns, residual risk \(R_r\) | `ANALYST_SYSTEMIC_V1` | Structured analysis + \(R_r\) contract |
+
+Tone law injected on every handoff: `EMPOWERMENT_FIRST_CHECKLIST` — checklists, options, questions, evidence gaps. The operator stays in command.
+
+## Residual risk
+
+\[
+R_r = \text{Inherent Risk} \times (1 - C_e \times E_m)
+\]
+
+Inherent Risk is Likelihood × Impact on a hard-coded 5×5. Bands: 1–7 sage / 8–14 slate / 15–20 amber (fail-closed) / 21–25+ deep red (halt).
+
+## Quick start
+
+```bash
+npm install
+npm test
+node dist/cli.js route "They gave us an artificial deadline on this contract."
+node dist/cli.js equalize "Refuse the speed tactic and request a written breakdown."
+node dist/cli.js risk --likelihood 5 --impact 5 --ce 0.2
+node dist/cli.js pipeline "Systemic residual risk: likelihood 4 impact 5 c_e 0.3" --ledger data/ledger.jsonl
 ```
-
-### Export
-
-Transcript export targets: JSON (primary for automation), TXT, PDF (`skeleton`). Clear Chat should persist decisions/evidence to a continuity ledger — not dump full chat.
-
-## UI direction (declared)
-
-Deep obsidian background, interactive nebular particle mesh, glassmorphism panels, cyan glow accents, chrome typography. Command Center shell is Phase 2+ (`skeleton` static placeholder optional).
 
 ## Honest status tags
 
 | Lane | Tag |
 |------|-----|
-| Product docs / architecture | `skeleton` |
-| Agent router (keyword + handoff token) | `skeleton` |
-| Think Mode overlay | `skeleton` |
-| Export schema | `skeleton` |
-| L5 / LOCAL_ONLY / 18ms HUD labels | `declared` (UI signals until enforced) |
+| Router v0 (keyword + handoff token) | `enforced` |
+| Equalizer JSON schema | `enforced` |
+| \(R_r\) formula + 5×5 + bands | `enforced` |
+| Tone law injection | `enforced` |
+| Append-only JSONL ledger | `enforced` (local file) |
 | Glass Command Center UI | `skeleton` |
+| Hardware attestation / TPM / measured boot | out of scope (Phase 2 Trust Substrate) |
 
 ## Docs
 
-- [Sovereign Operator response (Daniel)](docs/SOVEREIGN_OPERATOR_RESPONSE.md)  
-- [Architecture](docs/ARCHITECTURE.md)  
-- [Visual handoff contract](docs/VISUAL_HANDOFF_V1.md)  
-- [Transcript export schema](docs/schemas/transcript-export.schema.json)  
-- [Agent lawbook](AGENTS.md)  
+- [Router v0](docs/ROUTER_V0.md)
+- [Tone law](docs/TONE_LAW.md)
+- [Residual risk contract](docs/RESIDUAL_RISK.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Agent lawbook](AGENTS.md)
+- [Visual handoff](docs/VISUAL_HANDOFF_V1.md) (side-channel token, not a third front)
 
-## Quick start
+## Related systems (optional)
 
-```bash
-# Docs-first Phase 1 — no runtime required
-npm install   # optional; reserved for future Vite shell
-npm run build # no-op placeholder until UI lands
-```
-
-## Related systems (optional bridges)
-
-- Governed Chamber / episode JSON — see `docs/INTEGRATION_NOTES.md`  
-- Continuity Ledger (Jarvis) — decisions/evidence, not chat dumps  
+Continuity Ledger adapters and chamber/episode mapping: [docs/INTEGRATION_NOTES.md](docs/INTEGRATION_NOTES.md). Do not vendor MRS/Infinity trees.
 
 ## License
 

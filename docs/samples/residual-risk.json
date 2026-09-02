@@ -1,0 +1,15 @@
+{
+  "likelihood": 5,
+  "impact": 5,
+  "inherent_risk": 25,
+  "control_effectiveness": 0.2,
+  "evidence_multiplier": 1,
+  "formula": "R_r = inherent_risk * (1 - control_effectiveness * evidence_multiplier)",
+  "r_r": 20,
+  "band": "HIGH",
+  "severity": "High",
+  "ui_indicator": "AMBER",
+  "action_required": "Fail-closed gate triggered; escalation required.",
+  "action_code": "FAIL_CLOSED_ESCALATE",
+  "fail_closed": true
+}

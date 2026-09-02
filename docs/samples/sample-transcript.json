@@ -39,8 +39,7 @@
     }
   ],
   "provenance": {
-    "local_only": true,
-    "router_version": "v0-skeleton",
+    "router_version": "v0",
     "source": "docs/samples/sample-transcript.json"
   }
 }
