@@ -9,6 +9,9 @@ build/
 .vite/
 *.local
 
+# Ledger / local data
+data/
+
 # Env / secrets
 .env
 .env.*

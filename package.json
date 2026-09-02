@@ -1,15 +1,26 @@
 {
   "name": "spatial-xr-ai",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Spatial XR AI — Dual-Front Intelligence System (Phase 1 skeleton)",
+  "description": "Spatial XR AI — Dual-Front intelligence control plane (Router v0, Equalizer artifacts, residual risk)",
   "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "spatial-xr": "./dist/cli.js"
+  },
   "scripts": {
-    "build": "node -e \"console.log('spatial-xr-ai: Phase 1 docs scaffold — UI shell not yet wired')\"",
-    "test": "node -e \"console.log('spatial-xr-ai: no runtime tests yet (skeleton)')\"",
-    "lint": "node -e \"console.log('spatial-xr-ai: lint reserved')\""
+    "build": "tsc",
+    "test": "tsc && node --test dist/*.test.js",
+    "start": "node dist/cli.js",
+    "lint": "tsc --noEmit"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.11",
+    "typescript": "^5.9.2"
   }
 }

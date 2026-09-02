@@ -3,6 +3,12 @@
 **Status:** `skeleton`  
 This product is standalone. The notes below are **contracts only** — do not copy MRS/Infinity trees into this repo.
 
+## Phase 2 — Trust Substrate (not this repo)
+
+Hardware security and attestation — TPM, DMA/IOMMU isolation, measured boot, SMM — is a real threat model and belongs in a dedicated Trust Substrate / Codex repo. Do not mix those controls into the Dual-Front chat interface or Router v0.
+
+The in-repo ledger is an append-only JSONL file of routing decisions and JSON artifacts. It is not a measured-boot attestation log.
+
 ## Continuity ledger
 
 When chat is cleared, persist durable outcomes as decisions/evidence (not full transcripts):

@@ -1,5 +1,7 @@
 # To Daniel — Spatial XR AI v3.3 / Sovereign Operator brief
 
+> Historical operator letter. Active interfaces are Router v0, Equalizer JSON, and the \(R_r\) contract in `src/` / `README.md`. Model-brand names and L5 HUD claims in this letter are **not** product API.
+
 Jon asked for a direct answer on his behalf. Forward as needed.
 
 ---

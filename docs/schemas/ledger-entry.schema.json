@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-xr-ai.local/schemas/ledger-entry.schema.json",
+  "title": "LedgerEntry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "entry_id",
+    "recorded_at",
+    "utterance_hash",
+    "routing_decision",
+    "router_trace",
+    "artifact",
+    "residual_risk"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "spatial-xr-ledger-v0" },
+    "entry_id": { "type": "string", "minLength": 1 },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "utterance_hash": { "type": "string", "minLength": 64, "maxLength": 64 },
+    "routing_decision": { "type": "object" },
+    "router_trace": { "type": "object" },
+    "artifact": {
+      "type": "object",
+      "required": ["kind"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["equalizer_payload", "analyst_payload"]
+        }
+      }
+    },
+    "residual_risk": {
+      "oneOf": [{ "type": "null" }, { "$ref": "./residual-risk.schema.json" }]
+    }
+  }
+}

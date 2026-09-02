@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://spatial-xr-ai.local/schemas/residual-risk.schema.json",
+  "title": "ResidualRisk",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "likelihood",
+    "impact",
+    "inherent_risk",
+    "control_effectiveness",
+    "evidence_multiplier",
+    "formula",
+    "r_r",
+    "band",
+    "severity",
+    "ui_indicator",
+    "action_required",
+    "action_code",
+    "fail_closed"
+  ],
+  "properties": {
+    "likelihood": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "impact": { "type": "integer", "minimum": 1, "maximum": 5 },
+    "inherent_risk": { "type": "number", "minimum": 1, "maximum": 25 },
+    "control_effectiveness": { "type": "number", "minimum": 0, "maximum": 1 },
+    "evidence_multiplier": { "type": "number", "minimum": 0, "maximum": 1 },
+    "formula": {
+      "type": "string",
+      "const": "R_r = inherent_risk * (1 - control_effectiveness * evidence_multiplier)"
+    },
+    "r_r": { "type": "number", "minimum": 0 },
+    "band": {
+      "type": "string",
+      "enum": ["LOW", "MODERATE", "HIGH", "CRITICAL"]
+    },
+    "severity": { "type": "string" },
+    "ui_indicator": {
+      "type": "string",
+      "enum": ["SAGE_GREEN", "SLATE_BLUE", "AMBER", "DEEP_RED"]
+    },
+    "action_required": { "type": "string" },
+    "action_code": {
+      "type": "string",
+      "enum": [
+        "STANDARD_LOGGING",
+        "MANUAL_REVIEW",
+        "FAIL_CLOSED_ESCALATE",
+        "CONTAINMENT_HALT"
+      ]
+    },
+    "fail_closed": { "type": "boolean" }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "routing_decision": {
+    "target_front": "LINGUISTIC_EQUALIZER",
+    "handoff_token": "EQUALIZER_TACTICAL_V1",
+    "trigger_reason": "Direct negotiation context detected",
+    "injected_tone_law": "EMPOWERMENT_FIRST_CHECKLIST"
+  }
+}
